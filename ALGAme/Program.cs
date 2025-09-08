@@ -1,4 +1,4 @@
-using OE.ALGA.ALGAme;
+﻿using OE.ALGA.ALGAme;
 
 Jatek jatek = new Jatek();
 jatek.Start();

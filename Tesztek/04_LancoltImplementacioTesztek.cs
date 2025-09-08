@@ -3,13 +3,13 @@
 
 //namespace OE.ALGA.Tesztek.Adatszerkezetek
 //{
-//    [TestFixture(Category = "Adatszerkezetek", TestName = "03 - Tömb Lista Tesztek")]
-//    public class TombListaTesztek
+//    [TestFixture(Category = "Adatszerkezetek", TestName = "04 - Lancolt Lista Tesztek")]
+//    public class LancoltListaTesztek
 //    {
 //        [TestCase]
 //        public void Elemszam()
 //        {
-//            Lista<string> l = new TombLista<string>();
+//            Lista<string> l = new LancoltLista<string>();
 //            Assert.That(l.Elemszam, Is.EqualTo(0));
 //            l.Hozzafuz("A");
 //            Assert.That(l.Elemszam, Is.EqualTo(1));
@@ -21,7 +21,7 @@
 //        [TestCase]
 //        public void Bejaras()
 //        {
-//            Lista<int> l = new TombLista<int>();
+//            Lista<int> l = new LancoltLista<int>();
 //            l.Hozzafuz(1);
 //            l.Hozzafuz(3);
 //            l.Hozzafuz(2);
@@ -32,7 +32,7 @@
 //        [TestCase]
 //        public void Beszuras()
 //        {
-//            Lista<int> l = new TombLista<int>();
+//            Lista<int> l = new LancoltLista<int>();
 //            l.Beszur(0, 1);
 //            l.Beszur(0, 2);
 //            l.Beszur(1, 3);
@@ -50,7 +50,7 @@
 //        [TestCase]
 //        public void BeszurasUres()
 //        {
-//            Lista<string> l = new TombLista<string>();
+//            Lista<string> l = new LancoltLista<string>();
 //            l.Beszur(0, "1");
 //            l.Beszur(0, "2");
 //            l.Beszur(1, "");
@@ -68,7 +68,7 @@
 //        [TestCase]
 //        public void HozzaFuzes()
 //        {
-//            Lista<int> l = new TombLista<int>();
+//            Lista<int> l = new LancoltLista<int>();
 //            l.Hozzafuz(1);
 //            l.Hozzafuz(3);
 //            l.Hozzafuz(2);
@@ -82,7 +82,7 @@
 //        [TestCase]
 //        public void HozzaFuzesUres()
 //        {
-//            Lista<string> l = new TombLista<string>();
+//            Lista<string> l = new LancoltLista<string>();
 //            l.Hozzafuz("1");
 //            l.Hozzafuz("");
 //            l.Hozzafuz("");
@@ -98,7 +98,7 @@
 //        [TestCase]
 //        public void Novekedes()
 //        {
-//            Lista<int> l = new TombLista<int>();
+//            Lista<int> l = new LancoltLista<int>();
 //            for (int i = 0; i < 1000; i++)
 //                l.Hozzafuz(i * i);
 //            Assert.That(l.Elemszam, Is.EqualTo(1000));
@@ -112,7 +112,7 @@
 //        [TestCase]
 //        public void Torles()
 //        {
-//            Lista<int> l = new TombLista<int>();
+//            Lista<int> l = new LancoltLista<int>();
 //            l.Hozzafuz(1);
 //            l.Hozzafuz(3);
 //            l.Hozzafuz(2);
@@ -131,7 +131,7 @@
 //        [TestCase]
 //        public void TorlesNincsElem()
 //        {
-//            Lista<int> l = new TombLista<int>();
+//            Lista<int> l = new LancoltLista<int>();
 //            Assert.That(l.Elemszam, Is.EqualTo(0));
 //            l.Torol(0);
 //            Assert.That(l.Elemszam, Is.EqualTo(0));
@@ -139,7 +139,7 @@
 //        [TestCase]
 //        public void TorlesUres()
 //        {
-//            Lista<string> l = new TombLista<string>();
+//            Lista<string> l = new LancoltLista<string>();
 //            l.Hozzafuz("1");
 //            l.Hozzafuz("");
 //            l.Hozzafuz("");
@@ -157,7 +157,7 @@
 //        [TestCase]
 //        public void NemletezoTorles()
 //        {
-//            Lista<int> l = new TombLista<int>();
+//            Lista<int> l = new LancoltLista<int>();
 //            l.Hozzafuz(1);
 //            l.Hozzafuz(2);
 //            l.Hozzafuz(3);
@@ -174,7 +174,7 @@
 //        [TestCase]
 //        public void Modositas()
 //        {
-//            Lista<int> l = new TombLista<int>();
+//            Lista<int> l = new LancoltLista<int>();
 //            l.Hozzafuz(1);
 //            l.Hozzafuz(3);
 //            l.Hozzafuz(2);
@@ -190,7 +190,7 @@
 //        [TestCase]
 //        public void ForeachBejaras()
 //        {
-//            TombLista<string> l = new TombLista<string>();
+//            LancoltLista<string> l = new LancoltLista<string>();
 //            l.Hozzafuz("a");
 //            l.Hozzafuz("c");
 //            l.Hozzafuz("d");
@@ -202,44 +202,41 @@
 //            }
 //            Assert.That(osszefuzo, Is.EqualTo("acdb"));
 //        }
-
 //    }
 
-//    [TestFixture(Category = "Adatszerkezetek", TestName = "03 - Tömb Sor Tesztek")]
-//    public class TombSorTesztek
+//    [TestFixture(Category = "Adatszerkezetek", TestName = "04 - Lancolt Sor Tesztek")]
+//    public class LancoltSorTesztek
 //    {
 //        [TestCase]
 //        public void Ures()
 //        {
-//            Sor<int> s = new TombSor<int>(0);
+//            Sor<int> s = new LancoltSor<int>();
 //            Assert.That(s.Ures, Is.True);
-//            Assert.Throws<NincsHelyKivetel>(() => s.Sorba(1));
+//            Assert.Throws<NincsElemKivetel>(() => s.Elso());
+//            Assert.Throws<NincsElemKivetel>(() => s.Sorbol());
+//            s.Sorba(1);
+//            Assert.That(s.Ures, Is.False);
+//            s.Sorbol();
+//            Assert.That(s.Ures, Is.True);
 //        }
 //        [TestCase]
 //        public void AlapMukodes()
 //        {
-//            Sor<int> s = new TombSor<int>(3);
-//            Assert.That(s.Ures, Is.True);
+//            Sor<int> s = new LancoltSor<int>();
 //            s.Sorba(1);
-//            Assert.That(s.Ures, Is.False);
 //            s.Sorba(3);
-//            Assert.That(s.Ures, Is.False);
 //            s.Sorba(2);
-//            Assert.That(s.Ures, Is.False);
 //            Assert.Multiple(() =>
 //            {
 //                Assert.That(s.Sorbol(), Is.EqualTo(1));
-//                Assert.That(s.Ures, Is.False);
 //                Assert.That(s.Sorbol(), Is.EqualTo(3));
-//                Assert.That(s.Ures, Is.False);
 //                Assert.That(s.Sorbol(), Is.EqualTo(2));
-//                Assert.That(s.Ures, Is.True);
 //            });
 //        }
 //        [TestCase]
 //        public void UresElem()
 //        {
-//            Sor<string> s = new TombSor<string>(3);
+//            Sor<string> s = new LancoltSor<string>();
 //            s.Sorba("");
 //            s.Sorba("1");
 //            s.Sorba("");
@@ -251,40 +248,9 @@
 //            });
 //        }
 //        [TestCase]
-//        public void Korbeeres()
-//        {
-//            Sor<int> s = new TombSor<int>(3);
-//            s.Sorba(1);
-//            s.Sorba(3);
-//            s.Sorba(2);
-//            Assert.Multiple(() =>
-//            {
-//                Assert.That(s.Sorbol(), Is.EqualTo(1));
-//                Assert.That(s.Sorbol(), Is.EqualTo(3));
-//            });
-//            s.Sorba(4);
-//            s.Sorba(5);
-//            Assert.Multiple(() =>
-//            {
-//                Assert.That(s.Sorbol(), Is.EqualTo(2));
-//                Assert.That(s.Sorbol(), Is.EqualTo(4));
-//                Assert.That(s.Sorbol(), Is.EqualTo(5));
-//            });
-//        }
-//        [TestCase]
-//        public void TulSokElem()
-//        {
-//            Sor<int> s = new TombSor<int>(3);
-//            s.Sorba(1);
-//            s.Sorba(3);
-//            s.Sorba(2);
-//            Assert.Throws<NincsHelyKivetel>(() => s.Sorba(4));
-//        }
-
-//        [TestCase]
 //        public void TulKevesElem()
 //        {
-//            Sor<int> s = new TombSor<int>(3);
+//            Sor<int> s = new LancoltSor<int>();
 //            s.Sorba(1);
 //            s.Sorba(3);
 //            s.Sorba(2);
@@ -296,7 +262,7 @@
 //        [TestCase]
 //        public void Elso()
 //        {
-//            Sor<int> s = new TombSor<int>(3);
+//            Sor<int> s = new LancoltSor<int>();
 //            s.Sorba(1);
 //            s.Sorba(3);
 //            s.Sorba(2);
@@ -310,45 +276,41 @@
 //        }
 //    }
 
-//    [TestFixture(Category = "Adatszerkezetek", TestName = "03 - Tömb Verem Tesztek")]
-//    public class TombVeremTesztek
+//    [TestFixture(Category = "Adatszerkezetek", TestName = "04 - Lancolt Verem Tesztek")]
+//    public class LancoltVeremTesztek
 //    {
 //        [TestCase]
 //        public void Ures()
 //        {
-//            Verem<int> v = new TombVerem<int>(0);
+//            Verem<int> v = new LancoltVerem<int>();
 //            Assert.That(v.Ures, Is.True);
-//            Assert.Throws<NincsHelyKivetel>(() => v.Verembe(1));
+//            Assert.Throws<NincsElemKivetel>(() => v.Felso());
+//            Assert.Throws<NincsElemKivetel>(() => v.Verembol());
+//            v.Verembe(1);
+//            Assert.That(v.Ures, Is.False);
+//            v.Verembol();
+//            Assert.That(v.Ures, Is.True);
 //        }
 //        [TestCase]
 //        public void AlapMukodes()
 //        {
-//            Verem<int> v = new TombVerem<int>(3);
-//            Assert.That(v.Ures, Is.True);
+//            Verem<int> v = new LancoltVerem<int>();
 //            v.Verembe(1);
-//            Assert.That(v.Ures, Is.False);
 //            v.Verembe(3);
-//            Assert.That(v.Ures, Is.False);
 //            v.Verembe(2);
-//            Assert.That(v.Ures, Is.False);
 //            Assert.That(v.Verembol(), Is.EqualTo(2));
-//            Assert.That(v.Ures, Is.False);
 //            v.Verembe(4);
-//            Assert.That(v.Ures, Is.False);
 //            Assert.Multiple(() =>
 //            {
 //                Assert.That(v.Verembol(), Is.EqualTo(4));
-//                Assert.That(v.Ures, Is.False);
 //                Assert.That(v.Verembol(), Is.EqualTo(3));
-//                Assert.That(v.Ures, Is.False);
 //                Assert.That(v.Verembol(), Is.EqualTo(1));
-//                Assert.That(v.Ures, Is.True);
 //            });
 //        }
 //        [TestCase]
 //        public void UresElem()
 //        {
-//            Verem<string> v = new TombVerem<string>(3);
+//            Verem<string> v = new LancoltVerem<string>();
 //            v.Verembe("");
 //            v.Verembe("1");
 //            v.Verembe("");
@@ -360,18 +322,9 @@
 //            });
 //        }
 //        [TestCase]
-//        public void TulSokElem()
-//        {
-//            Verem<int> v = new TombVerem<int>(3);
-//            v.Verembe(1);
-//            v.Verembe(3);
-//            v.Verembe(2);
-//            Assert.Throws<NincsHelyKivetel>(() => v.Verembe(4));
-//        }
-//        [TestCase]
 //        public void TulKevesElem()
 //        {
-//            Verem<int> v = new TombVerem<int>(3);
+//            Verem<int> v = new LancoltVerem<int>();
 //            v.Verembe(1);
 //            v.Verembe(3);
 //            v.Verembe(2);
@@ -383,7 +336,7 @@
 //        [TestCase]
 //        public void Felso()
 //        {
-//            Verem<int> v = new TombVerem<int>(3);
+//            Verem<int> v = new LancoltVerem<int>();
 //            v.Verembe(1);
 //            v.Verembe(3);
 //            v.Verembe(2);
@@ -395,5 +348,6 @@
 //            v.Verembol();
 //            Assert.That(v.Felso(), Is.EqualTo(3));
 //        }
+
 //    }
 //}

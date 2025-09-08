@@ -1,4 +1,4 @@
-namespace OE.ALGA.Sandbox
+﻿namespace OE.ALGA.Sandbox
 {
     internal class Program
     {

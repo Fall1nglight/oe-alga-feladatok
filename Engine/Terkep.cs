@@ -1,4 +1,4 @@
-namespace OE.ALGA.Engine
+﻿namespace OE.ALGA.Engine
 {
     public class Terkep : INezopont
     {

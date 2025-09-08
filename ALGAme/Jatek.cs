@@ -1,4 +1,4 @@
-using OE.ALGA.Engine;
+﻿using OE.ALGA.Engine;
 
 namespace OE.ALGA.ALGAme
 {

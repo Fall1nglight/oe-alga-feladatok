@@ -1,4 +1,6 @@
-namespace OE.ALGA.Adatszerkezetek
+﻿using System;
+
+namespace OE.ALGA
 {
     public interface Lista<T>
     {
