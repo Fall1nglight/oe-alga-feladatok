@@ -83,7 +83,7 @@ namespace OE.ALGA.Paradigmak
         // methods
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
 
-        public IEnumerator<T> GetEnumerator() => new FeladatTaroloBejaro<T>(tarolo, n);
+        public virtual IEnumerator<T> GetEnumerator() => new FeladatTaroloBejaro<T>(tarolo, n);
 
         public void Felvesz(T elem)
         {

@@ -11,6 +11,7 @@ namespace OE.ALGA.Paradigmak
         where T : IVegrehajthato
     {
         // fields
+        public Predicate<T> BejaroFeltetel { get; set; }
 
         // constructors
         public FeltetelesFeladatTarolo(int meret)
@@ -32,16 +33,38 @@ namespace OE.ALGA.Paradigmak
             }
         }
 
+        public override IEnumerator<T> GetEnumerator()
+        {
+            Predicate<T> match;
+
+            if (BejaroFeltetel == null)
+            {
+                match = (item) => true;
+            }
+            else
+            {
+                match = BejaroFeltetel;
+            }
+
+            FeltetelesFeladatTaroloBejaro<T> bejaro = new FeltetelesFeladatTaroloBejaro<T>(
+                tarolo,
+                n,
+                match
+            );
+
+            return bejaro;
+        }
+
         // properties
     }
 
     // BEJARO
-    public class FeltetelesFeladatBejaro<T> : IEnumerator<T>
+    public class FeltetelesFeladatTaroloBejaro<T> : IEnumerator<T>
     {
         // fields
         public Predicate<T> feltetel;
         private T[] tarolo;
-        private int n = 0;
+        private int n;
         private int aktualisIndex = -1;
 
         // properties
@@ -51,8 +74,10 @@ namespace OE.ALGA.Paradigmak
 
         // constructors
 
-        public FeltetelesFeladatBejaro(Predicate<T> feltetel)
+        public FeltetelesFeladatTaroloBejaro(T[] tarolo, int n, Predicate<T> feltetel)
         {
+            this.tarolo = tarolo;
+            this.n = n;
             this.feltetel = feltetel;
         }
 
