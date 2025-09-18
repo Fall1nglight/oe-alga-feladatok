@@ -18,17 +18,17 @@ namespace OE.ALGA.Paradigmak
             : base(meret) { }
 
         // methods
-        public virtual void FeltetelesVegrehajtas(Predicate<T> match)
+        public void FeltetelesVegrehajtas(Predicate<T> feltetel)
         {
             // bejárjuk a tömböt n-ig
             for (int i = 0; i < n; i++)
             {
                 // ha az adott elemre meghívott
-                // match Predicate visszatérési
+                // feltetel Predicate visszatérési
                 // értéke IGAZ meghívjuk a
                 // 'Vegrehajtas' metódusát
 
-                if (match(tarolo[i]))
+                if (feltetel(tarolo[i]))
                     tarolo[i].Vegrehajtas();
             }
         }
@@ -68,7 +68,7 @@ namespace OE.ALGA.Paradigmak
         private int aktualisIndex = -1;
 
         // properties
-        public T Current { get; }
+        public T Current => tarolo[aktualisIndex];
 
         object? IEnumerator.Current => Current;
 

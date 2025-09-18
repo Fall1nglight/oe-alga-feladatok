@@ -1,6 +1,5 @@
 // using Microsoft.VisualStudio.TestTools.UnitTesting;
 // using OE.ALGA.Paradigmak;
-// using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 //
 // namespace OE.ALGA.Tesztek
 // {
