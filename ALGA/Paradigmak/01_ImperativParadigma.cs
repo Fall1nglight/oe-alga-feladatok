@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace OE.ALGA.Paradigmak
 {
     // 1. heti labor feladat - Tesztek: 01_ImperativParadigmaTesztek.cs
-    public interface IVegrehajto
+    public interface IVegrehajthato
     {
         void Vegrehajtas();
     }
@@ -68,7 +68,7 @@ namespace OE.ALGA.Paradigmak
     }
 
     public class FeladatTarolo<T> : IEnumerable<T>
-        where T : IVegrehajto
+        where T : IVegrehajthato
     {
         // fields
         protected T[] tarolo;
@@ -95,25 +95,25 @@ namespace OE.ALGA.Paradigmak
 
         public virtual void MindentVegrehajt()
         {
-            foreach (T elem in tarolo)
+            for (int i = 0; i < n; i++)
             {
-                elem.Vegrehajtas();
+                tarolo[i].Vegrehajtas();
             }
         }
     }
 
     public class FuggoFeladatTarolo<T> : FeladatTarolo<T>
-        where T : IVegrehajto, IFuggo, IEnumerable<T>
+        where T : IVegrehajthato, IFuggo
     {
         public FuggoFeladatTarolo(int meret)
             : base(meret) { }
 
         public override void MindentVegrehajt()
         {
-            foreach (T elem in tarolo)
+            for (int i = 0; i < n; i++)
             {
-                if (elem.FuggosegTeljesul)
-                    elem.Vegrehajtas();
+                if (tarolo[i].FuggosegTeljesul)
+                    tarolo[i].Vegrehajtas();
             }
         }
     }
