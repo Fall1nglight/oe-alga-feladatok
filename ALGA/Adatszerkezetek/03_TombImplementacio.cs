@@ -36,15 +36,18 @@ namespace OE.ALGA.Adatszerkezetek
                 throw new NincsElemKivetel();
 
             T elem = E[n - 1];
+
+            // ez nem szükséges, de ajánlott a memória felszabadítás céljából
             E[n - 1] = default(T)!;
             n--;
+
             return elem;
         }
 
         public T Felso()
         {
             if (Ures)
-                return default(T)!;
+                throw new NincsElemKivetel();
 
             return E[n - 1];
         }
@@ -181,46 +184,62 @@ namespace OE.ALGA.Adatszerkezetek
 
         public void Beszur(int index, T ertek)
         {
-            // negatív index nincsen
-            // és az utolsó elem után még beszúrhatunk elemet
+            // ha az index negatív vagy
+            // nagyobb az elemszámnál hibát dobunk
+            // fontos: megengedjük, hogy az a "n"-edik
+            // helyre való elem beszúrást
             if (index < 0 || index > Elemszam)
                 throw new HibasIndexKivetel();
 
+            // ha megtelt a tömb, növeljük a méretét
             if (Elemszam == E.Length)
                 MeretNovel();
 
+            // n-től index-ig visszafelé haladva
+            // eltoljuk az elemeket egyel jobbra
             for (int i = n; i > index; i--)
             {
                 E[i] = E[i - 1];
             }
 
+            // növeljük az elemszámot és beszúrjuk az új értéket
             n++;
             E[index] = ertek;
         }
 
         public void Torol(T ertek)
         {
+            // itt tároljuk a talált elemek számáz
             int db = 0;
 
+            // bejárjuk a tömböt egy számláló ciklussal i<--1-től n-ig
             for (int i = 0; i < n; i++)
             {
+                // ha az aktuális elem megegyezik a törlendő értékkel növeljük a "db" értékét egyel
                 if (E[i]!.Equals(ertek))
                 {
                     db++;
                 }
+                // ha nincs egyezés akkor mozgatjuk az elemet
+                // mégpedig annyival, amennyit előtte megtaláltunk
+                // ezáltal felülírjuk a törlendő elemeket
                 else
                 {
                     E[i - db] = E[i];
                 }
             }
 
+            // csökkentjük az elemszámot a talált elemek értékével
             n -= db;
         }
 
         public void Bejar(Action<T> muvelet)
         {
+            // bejárjuk a tömböt i<--1-től n-ig
             for (int i = 0; i < n; i++)
             {
+                // az aktuális elemen végrehatjuk a paraméterként
+                // kapott műveletet
                 muvelet(E[i]);
             }
         }
