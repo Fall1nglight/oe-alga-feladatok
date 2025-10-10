@@ -32,7 +32,7 @@ The solutions follow the main thematic units covered throughout the semester:
 
 # [HU] Algoritmusok és Adatszerkezetek – Megoldások 🎓
 
-Ez a repository az **Algoritmusok és Adatszerkezetek** (NSXAAIHBNF) című egyetemi tárgyhoz kapcsolódó órai feladatok, laborgyakorlatok és zárthelyi felkészítő anyagok megoldásait tartalmazza. A tárgy célja az **alapvető algoritmusok**, a **legelterjedtebb adatszerkezetek** és a modern **programozási paradigmák** mélyreható megismerése.
+Ez a repository az **Algoritmusok és Adatszerkezetek** című egyetemi tárgyhoz kapcsolódó órai feladatok, laborgyakorlatok és zárthelyi felkészítő anyagok megoldásait tartalmazza. A tárgy célja az **alapvető algoritmusok**, a **legelterjedtebb adatszerkezetek** és a modern **programozási paradigmák** mélyreható megismerése.
 
 ---
 
