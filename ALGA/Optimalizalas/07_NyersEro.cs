@@ -7,9 +7,25 @@ namespace OE.ALGA.Optimalizalas
     public class HatizsakProblema
     {
         // fields & properties
+
+        /// <summary>
+        /// Lehetséges megoldások száma
+        /// </summary>
         public int n { get; }
+
+        /// <summary>
+        /// Hátizsák mérete
+        /// </summary>
         public int Wmax { get; }
+
+        /// <summary>
+        /// Egyes tárgyak súlyai
+        /// </summary>
         public int[] w { get; }
+
+        /// <summary>
+        /// Egyes tárgyak értékei
+        /// </summary>
         public float[] p { get; }
 
         // constructors
