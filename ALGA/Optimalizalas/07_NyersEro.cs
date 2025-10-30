@@ -1,5 +1,4 @@
 ﻿using System;
-using OE.ALGA.Adatszerkezetek;
 
 namespace OE.ALGA.Optimalizalas;
 
@@ -115,21 +114,13 @@ public class NyersEroHatizsakPakolas
     // methods
     public bool[] Generator(int x)
     {
-        LancoltLista<bool> lista = new LancoltLista<bool>();
-
+        bool[] eredmeny = new bool[problema.n];
         int szam = x - 1;
 
-        for (int i = 0; i < problema.n; i++)
-        {
-            lista.Hozzafuz((szam / (int)Math.Pow(2, i)) % 2 == 1);
-        }
+        for (int i = 0; i < eredmeny.Length; i++)
+            eredmeny[i] = szam / (int)Math.Pow(2, i) % 2 == 1;
 
-        bool[] result = new bool[lista.Elemszam];
-
-        for (int i = 0; i < lista.Elemszam; i++)
-            result[i] = lista.Kiolvas(i);
-
-        return result;
+        return eredmeny;
     }
 
     public float Josag(bool[] pakolas) =>
